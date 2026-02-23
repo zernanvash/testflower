@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Flower Animation</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #0d1b2a, #000);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+h1 {
+  position: absolute;
+  top: 60px;
+  font-weight: 300;
+}
+
+.garden {
+  position: relative;
+  width: 300px;
+  height: 400px;
+}
+
+/* Stem */
+.stem {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  height: 0;
+  background: #2ecc71;
+  transform: translateX(-50%);
+  animation: growStem 2s forwards;
+}
+
+/* Leaves */
+.leaf {
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  background: #27ae60;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.leaf.left {
+  left: -55px;
+  bottom: 120px;
+  transform: rotate(-30deg);
+  animation: showLeaf 1s 1.5s forwards;
+}
+
+.leaf.right {
+  right: -55px;
+  bottom: 160px;
+  transform: rotate(30deg);
+  animation: showLeaf 1s 1.8s forwards;
+}
+
+/* Flower */
+.flower {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  transform: translateX(-50%) scale(0);
+  animation: bloom 1.5s 2s forwards;
+}
+
+.petal {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  background: #6fffe9;
+  border-radius: 50%;
+  top: 10px;
+  left: 20px;
+  transform-origin: bottom center;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg); }
+.petal:nth-child(2) { transform: rotate(60deg); }
+.petal:nth-child(3) { transform: rotate(120deg); }
+.petal:nth-child(4) { transform: rotate(180deg); }
+.petal:nth-child(5) { transform: rotate(240deg); }
+.petal:nth-child(6) { transform: rotate(300deg); }
+
+.center {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border-radius: 50%;
+  top: 30px;
+  left: 27px;
+  box-shadow: 0 0 20px #6fffe9;
+}
+
+/* Animations */
+@keyframes growStem {
+  to { height: 200px; }
+}
+
+@keyframes showLeaf {
+  to { opacity: 1; }
+}
+
+@keyframes bloom {
+  to { transform: translateX(-50%) scale(1); }
+}
+</style>
+</head>
+<body>
+
+<h1>Happy Valentine's Day</h1>
+
+<div class="garden">
+  <div class="stem"></div>
+
+  <div class="leaf left"></div>
+  <div class="leaf right"></div>
+
+  <div class="flower">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="center"></div>
+  </div>
+</div>
+
+</body>
+</html>
